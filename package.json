@@ -1,0 +1,20 @@
+{
+  "name": "docker-simple-server",
+  "version": "1.0.0",
+  "description": "An express docker example",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParsePlatform/parse-server-example"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.2.x"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=4.1"
+  }
+}
