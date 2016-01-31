@@ -1,15 +1,16 @@
 FROM node:4.2.6-wheezy
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
 RUN apt-get update
 
-COPY package.json /usr/src/app/
-RUN npm install
+ADD package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /express-server && cp -a /tmp/node_modules /express-server/
 
-COPY . /usr/src/app
+ADD . /express-server
 
+# Expose running port
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+WORKDIR /express-server
+
+CMD ["npm", "start"]
